@@ -1,0 +1,99 @@
+# ==============================================================================
+# 1. PYTHON & DJANGO SPECIFIC ITEMS
+# ==============================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Django local configurations & system caches
+db.sqlite3
+db.sqlite3-journal
+.webassets-cache
+media/
+staticfiles/
+static_root/
+
+# Virtual Environments
+
+.env/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================================================================
+# 2. JAVASCRIPT & REACT SPECIFIC ITEMS
+# ==============================================================================
+# Dependencies
+node_modules/
+/jspm_packages
+
+# Build outputs
+dist/
+tmp/
+out/
+build/
+.next/
+.nuxt/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==============================================================================
+# 3. DOCKER & SYSTEM SECURITY ITEMS
+# ==============================================================================
+# Sensitive environment variable files (CRITICAL: Never commit these!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Docker logs and runtime tracks
+.docker/
+docker-compose.override.yml
+*.dockerlog
+
+# OS generated files (macOS / Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
