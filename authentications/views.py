@@ -7,8 +7,6 @@ from rest_framework.decorators import api_view
 
 
 
-
-
 @api_view(["POST"])
 def create_user_view(request):  
     serializer = UserSerializer(data=request.data)
@@ -18,3 +16,5 @@ def create_user_view(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
