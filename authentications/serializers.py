@@ -2,9 +2,10 @@ from rest_framework import serializers
 from .models import CustomUser
 
 
-class UserSerializer(serializers.serializer):
+class UserSerializer(serializers.ModelSerializer):
       class Meta:
-            fields=['username','email','passowrd','first_name','last_name','role']
+            model=CustomUser
+            fields=['username','email','password','first_name','last_name','role']
 
 #Overiding the save method for the User instance
       def create(self, validated_data):
