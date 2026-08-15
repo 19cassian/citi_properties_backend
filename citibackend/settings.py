@@ -37,14 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'authentications',
+    'corsheaders',
+    'authentications.apps.AuthenticationsConfig',
     'rest_framework',
+    'django_rest_passwordreset',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware", 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -149,3 +152,32 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL='authentications.CustomUser'
+
+CORS_ALLOWED_ORIGINS = [
+
+    "http://localhost:5173"
+
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+
+
+
+
+
+
+
+#Email backend settings
+
+REST_FRAMEWORK = {"DEFAULT_THROTTLE_RATES": {"django-rest-passwordreset-request-token": "10/hour"}}
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '19cassian@gmail.com'
+EMAIL_HOST_PASSWORD = 'epocmgriwkocrgil'
+DEFAULT_FROM_EMAIL = 'CitiProperties <19cassian@gmail.com>'

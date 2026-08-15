@@ -3,7 +3,9 @@ from .models import CustomUser
 
 
 class UserSerializer(serializers.ModelSerializer):
+      password = serializers.CharField(write_only=True)
       class Meta:
+
             model=CustomUser
             fields=['username','email','password','first_name','last_name','role']
 
@@ -18,3 +20,12 @@ class UserSerializer(serializers.ModelSerializer):
         user =CustomUser.objects.create_user(username=username,email=email,password=password,first_name=first_name,last_name=last_name,role=role)
         user.save()
         return user
+
+
+      #Aserializer for email to resert password
+
+      class EmailSerializer(serializers.Serializer):
+            class Meta:
+                 model=CustomUser
+                 fields=["email"]
+                 
