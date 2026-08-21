@@ -25,6 +25,9 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include('authentications.urls')),
+    path('landlords/', include('landlords.urls')),
+    path('maintanance/', include('maintanance.urls')),
+
     path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('api/login/', TokenObtainPairView.as_view(), name='login'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

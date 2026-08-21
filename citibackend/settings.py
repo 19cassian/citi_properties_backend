@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'authentications.apps.AuthenticationsConfig',
+    'landlords',
+    'maintanance',
     'rest_framework',
     'django_rest_passwordreset',
     'rest_framework_simplejwt',
