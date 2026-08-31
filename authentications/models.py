@@ -7,3 +7,4 @@ class CustomUser(AbstractUser):
      
      ROLES=[("TENANT","Tenant"),("LANDLORD","Landlord")]
      role=models.CharField(choices=ROLES ,blank=False ,max_length=50)
+

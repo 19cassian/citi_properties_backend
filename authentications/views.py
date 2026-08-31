@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from .serializers import UserSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
+from .models import CustomUser
 
 
 
@@ -20,7 +21,10 @@ def create_user_view(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-
-
+@api_view(["GET"])
+def tenant_list(request):
+     tenant=CustomUser.objects.filter(role="tenant")
+     serializer=UserSerializer(tenant,many=True)
+     return Response(serializer.data,status=status.HTTP_200_OK)
 
 

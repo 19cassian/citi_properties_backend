@@ -12,6 +12,8 @@ class Maintanance(models.Model):
      created_at=models.DurationField()
      assignment_status=models.CharField(max_length=100,default="Unassigned")
 
+     
+
      def __str__(self):
          return f"{self.unit_id}{self.assignment_status}"
      

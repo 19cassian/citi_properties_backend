@@ -1,6 +1,16 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
+
+
+
+
+
+
+
+
+
+
 class Unit_property(models.Model):
      UNIT_STATUSES={("Occupied","Occupied"),("Maintanance","Maintanance"),("Vacant","Vacant")}
 
@@ -18,3 +28,20 @@ class Unit_property(models.Model):
          return f"{self.unit_id}{self.property_name}"
      
 
+class Property(models.Model):
+      property_name=models.CharField(max_length=100)
+      landlord_name=models.CharField(max_length=50,verbose_name="Landlord name")
+
+
+      def  __str__(self):
+             return f"{self.property_name} {self.landlord_name}"
+
+
+class LandlordProfile(models.Model):
+      landlord_name=models.OneToOneField(User,on_delete=models.CASCADE,related_name="landlord")
+      landlord_phone=models.CharField(max_length=15,blank=True)
+      property_owned=models.ForeignKey(Property,related_name="property")
+
+      def __str__(self):
+          return self.landlord_name
+      

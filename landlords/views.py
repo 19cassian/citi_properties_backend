@@ -1,9 +1,9 @@
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import property_unit_serilizer
+from .serializers import property_unit_serilizer,propertySerializer
 from .models import Unit_property
-from rest_framework.decorators import api_view
-from rest_framework import permissions
+from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 
@@ -54,3 +54,12 @@ def delete_unit_property(request, unit_id):
     unit=Unit_property.objects.get(pk=unit_id)
     unit.delete()
     return Response({"success":"Unit deleted successfully"},status=status.HTTP_200_OK)
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def create_property_view(request):
+    serializer=propertySerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data,status=status.HTTP_200_OK)
+    return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
