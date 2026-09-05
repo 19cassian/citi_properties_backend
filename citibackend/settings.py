@@ -156,7 +156,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL='authentications.CustomUser'
 
 CORS_ALLOWED_ORIGINS = [
-"citi-properties-backend.onrender.com",
+    'citi-properties-backend.onrender.com',
     "http://localhost:5173"
 
 ]
