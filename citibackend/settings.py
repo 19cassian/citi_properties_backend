@@ -161,6 +161,15 @@ CORS_ALLOWED_ORIGINS = [
 
 ]
 
+ALLOWED_HOSTS = [
+    'citi-properties-backend.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
+
+
+
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 
