@@ -157,7 +157,7 @@ AUTH_USER_MODEL='authentications.CustomUser'
 
 CORS_ALLOWED_ORIGINS = [
     'https://citi-properties-backend.onrender.com',
-    "http://localhost:5173"
+    'http://localhost:5173'
 
 ]
 
