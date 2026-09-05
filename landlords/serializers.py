@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Unit_property,Property
+from .models import Unit_property,Property,LandlordProfile
 
 class property_unit_serilizer(serializers.ModelSerializer):
       class Meta:
@@ -20,3 +20,14 @@ class propertySerializer(serializers.ModelSerializer):
             property=Property.objects.create(**validated_data)
             property.save()
             return property
+
+class LandlordProfileSerializer(serializers.ModelSerializer):
+       class Meta:
+             model=LandlordProfile
+             fields=['landlord_name','landlord_phone','property_owned']
+
+       def create_lanlord_profile(self ,validated_data):
+             landlordProfile=LandlordProfile.objects.create(**validated_data)
+             landlordProfile.save()
+             return landlordProfile
+       

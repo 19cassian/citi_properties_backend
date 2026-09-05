@@ -1,4 +1,4 @@
-from .views import create_unit_property_view,unit_property_list,get_unit_property,update_unit_property,create_property_view
+from .views import create_unit_property_view,unit_property_list,get_unit_property,update_unit_property,create_property_view,landlord_profile
 from django.urls import path
 
 urlpatterns = [
@@ -8,5 +8,6 @@ urlpatterns = [
     path('list/units/update/<str:unit_id>',update_unit_property, name="update_unit" ),
     path('list/units/delete/<str:unit_id>',update_unit_property, name="delete_unit" ),
     path('create/property',create_property_view, name="create_property" ),
+    path('create/profile',landlord_profile, name="landlord_profile" ),
 
 ]

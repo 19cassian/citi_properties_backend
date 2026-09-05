@@ -1,15 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
+
 # Create your models here.
-
-
-
-
-
-
-
-
-
 
 class Unit_property(models.Model):
      UNIT_STATUSES={("Occupied","Occupied"),("Maintanance","Maintanance"),("Vacant","Vacant")}
@@ -38,10 +30,10 @@ class Property(models.Model):
 
 
 class LandlordProfile(models.Model):
-      landlord_name=models.OneToOneField(User,on_delete=models.CASCADE,related_name="landlord")
+      landlord_name=models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name="landlord")
       landlord_phone=models.CharField(max_length=15,blank=True)
-      property_owned=models.ForeignKey(Property,related_name="property")
+      property_owned=models.ForeignKey(Property,related_name="property" ,on_delete=models.CASCADE)
 
-      def __str__(self):
-          return self.landlord_name
+      
+      
       
